@@ -1,4 +1,4 @@
-- [ ] Create basic app
+- [X] Create basic app
 - [ ] Add database functionality
 - [ ] Add encryption functionality
 - [ ] Basic views set up
