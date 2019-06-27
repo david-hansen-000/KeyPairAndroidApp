@@ -22,6 +22,23 @@ public class Database {
         secrets_db  = SQLiteDatabase.openOrCreateDatabase(secrets, null);
         data_db = SQLiteDatabase.openOrCreateDatabase(data, null);
         this.crypt=crypt;
+        create();
+    }
+
+    private void create() {
+        secrets_db.execSQL("create table if not exists key_pairs (main_key text, key text, value text)");
+        data_db.execSQL("create table if not exists main_key (key text)");
+    }
+
+    public ArrayList<String> getMainKeys() {
+        ArrayList<String> keys = new ArrayList<>();
+        Cursor c = data_db.query("main_key", new String[]{"key"}, null, null, null, null, null);
+        if (c.moveToFirst()) {
+            do {
+                keys.add(c.getString(0));
+            } while (c.moveToNext());
+        }
+        return keys;
     }
 
     public void add(Element element) {
@@ -34,7 +51,7 @@ public class Database {
         Element element = null;
         String key = null;
         String value = null;
-        Cursor c = secrets_db.query("key_pairs", new String[]{"rowid", "key", "value"},"where main_key=?", new String[]{main_key},null, null, null);
+        Cursor c = secrets_db.query("key_pairs", new String[]{"rowid", "key", "value"},"main_key=?", new String[]{main_key},null, null, null);
         if (c.moveToFirst()) {
             do {
                 element = new Element();
@@ -77,6 +94,7 @@ public class Database {
         return values;
     }
 
-
-
+    public Crypt getCrypt() {
+        return crypt;
+    }
 }
