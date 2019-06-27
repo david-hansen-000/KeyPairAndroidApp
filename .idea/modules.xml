@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/KeyPairAndroidApp.iml" filepath="$PROJECT_DIR$/KeyPairAndroidApp.iml" group="KeyPairAndroidApp" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="KeyPairAndroidApp/app" />
+      <module fileurl="file://$PROJECT_DIR$/widgetlibrary/widgetlibrary.iml" filepath="$PROJECT_DIR$/widgetlibrary/widgetlibrary.iml" group="KeyPairAndroidApp/widgetlibrary" />
     </modules>
   </component>
 </project>

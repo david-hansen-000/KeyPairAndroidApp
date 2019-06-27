@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="crud_spinner_values">
+        <item>New Item</item>
+        <item>Delete Item</item>
+        <item>Edit Item</item>
+    </string-array>
+</resources>
