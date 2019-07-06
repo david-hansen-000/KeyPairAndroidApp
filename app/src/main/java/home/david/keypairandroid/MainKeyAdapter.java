@@ -38,6 +38,8 @@ public class MainKeyAdapter<T> extends ArrayAdapter<T> {
         ListView listView=view.findViewById(R.id.element_list);
         DatabaseTask task=new DatabaseTask(listView);
         task.execute(main_key);
+        view.findViewById(R.id.key_list_up).setOnClickListener(v -> listView.scrollListBy(-20));
+        view.findViewById(R.id.key_list_down).setOnClickListener(v -> listView.scrollListBy(20));
         return view;
     }
 
